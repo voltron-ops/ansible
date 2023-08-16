@@ -1,0 +1,18 @@
+---
+- name: Deploy Container
+  hosts: all
+  #gather_facts: true
+  serial: "{{ parallel_num }}"
+  #max_fail_percentage: 90
+  vars:
+    parallel_num: 2
+    app_image_name: nginx
+    app_image_tag: 1.25
+    previous_app_image_tag: 1.24.0
+  tasks:
+  - assert: { that: "{{ item }} is defined" }
+    with_items:
+      - parallel_num
+
+  roles:
+    - { role: ../roles/deploy-container-vps}
