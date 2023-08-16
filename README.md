@@ -1,2 +1,2 @@
 # ansible
-This contains Ansible Playbook for Deploying applications.
+This contains Ansible Playbook for deploying containerized application to VPS.
