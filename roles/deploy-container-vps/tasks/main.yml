@@ -10,12 +10,12 @@
 
   - name: Stop and remove existing App container
     docker_container:
-      name: app_container
+      name: "{{ app_container_name }}"
       state: absent
 
   - name: Run App Docker container
     docker_container:
-      name: app_container
+      name: "{{ app_container_name }}"
       image: "{{ app_image_name }}:{{ app_image_tag }}"
       ports: "8090:80"
       state: started
